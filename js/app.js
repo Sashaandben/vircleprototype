@@ -150,7 +150,7 @@ $$('#done2').on('click', function () {
     }
     
     vircle7.alert(status, '', function(){
-        window.location.href = "../index.html";
+        window.location.href = "index.html";
     });
 
     
