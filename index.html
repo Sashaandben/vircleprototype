@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- manifest="cache.manifest" -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>vircle</title>
+      <link rel="stylesheet" href="css/framework7.min.css">
+       <link rel="stylesheet" href="css/font-awesome.min.css">
+      <link href="support/skype/emoticons.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="slider/nouislider.min.css">
+      <!-- Favicon-->
+      <link href="img/icon-57.png" rel="shortcut icon">
+      <!-- iOS 7 iPad (retina) -->
+      <link href="img/icon-152.png" sizes="152x152" rel="apple-touch-icon">
+      <!-- iOS 6 iPad (retina) -->
+      <link href="img/icon-144.png" sizes="144x144" rel="apple-touch-icon">
+      <!-- iOS 7 iPhone (retina) -->
+      <link href="img/icon-120.png" sizes="120x120" rel="apple-touch-icon">
+      <!-- iOS 6 iPhone (retina) -->
+      <link href="img/icon-114.png" sizes="114x114" rel="apple-touch-icon">
+      <!-- iOS 7 iPad -->
+      <link href="img/icon-76.png" sizes="76x76" rel="apple-touch-icon">
+      <!-- iOS 6 iPad -->
+      <link href="img/icon-72.png" sizes="72x72" rel="apple-touch-icon">
+      <!-- iOS 6 iPhone -->
+      <link href="img/icon-57.png" sizes="57x57" rel="apple-touch-icon">
+  </head>
+  <body onunload="">
+    <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+    <!-- Views -->
+    <div class="views">
+      <!-- Left view -->
+      <div class="view view-left navbar-through">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center sliding">History</div>
+          </div>
+        </div>
+        <div class="pages">
+          <div data-page="index-left" class="page">
+            <div class="page-content">
+              <div class="list-block">
+                <ul id="historyList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main view (right) -->
+      <div class="view view-main navbar-through">
+        <div class="navbar toplogo">
+          <div class="navbar-inner">
+            <div class="center sliding "><img src="img/white.png" width="100px"></div>
+            <!-- a href="#" class="link" onclick="newUser.remove();chattr.alert('You are now logged off.');location.reload();">Logout</a -->
+          </div>
+        </div>
+        <!-- Pages-->
+        <div class="pages">
+          <!-- Page, data-page contains page name-->
+            <div data-page="messages" class="page no-toolbar toolbar-fixed">
+                <div class="toolbar messagebar">
+                    <div class="toolbar-inner"><a href="#" id="speak" class="link icon-only"><i class="fa fa-microphone"></i></a>
+                        <textarea placeholder="Message"></textarea><a href="#" class="link">Go!</a>
+                    </div>
+                </div>
+                <div class="page-content messages-content">
+                    <div class="messages"></div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup popup-options-1 optionspage">
+
+    <div class="content-block-title forcewhite">What are the emotions you feel <br> right now?</div>
+    
+       <div class="row no-gutter emrow label">Fear</div>
+      <div class="row no-gutter ">
+        <div class="col-20"></div>
+        <div class="col-80"><div id="em1-bar" class="readingslider1"></div><input type="hidden" id="em1-val"></div>
+      </div>
+
+       <div class="row no-gutter emrow label">Anger</div>
+      <div class="row no-gutter ">
+        <div class="col-20 "> </div>
+        <div class="col-80"><div id="em2-bar" class="readingslider2"></div><input type="hidden" id="em2-val"></div>
+      </div>
+
+       <div class="row no-gutter emrow label">Apathy</div>
+      <div class="row no-gutter">
+        <div class="col-20 "></div>
+        <div class="col-80"><div id="em3-bar" class="readingslider3"></div> <input type="hidden" id="em3-val"></div>
+      </div>
+      <p></p>
+      <div class="list-block-label forcewhite">Please rate the emotions</div>
+      <div class="content-block"><a href="#" class="button whitebutton close-popup" id="done">Done</a></div>
+  </div>
+
+  <div class="popup popup-options-2 optionspage">
+
+    <div class="content-block-title forcewhite">What are the emotions you feel <br> right now?</div>
+    
+       <div class="row no-gutter emrow label">Fear</div>
+      <div class="row no-gutter ">
+        <div class="col-20"></div>
+        <div class="col-80"><div id="em1-bar2" class="readingslider1"></div><input type="hidden" id="em1-val2"></div>
+      </div>
+
+       <div class="row no-gutter emrow label">Anger</div>
+      <div class="row no-gutter ">
+        <div class="col-20 "> </div>
+        <div class="col-80"><div id="em2-bar2" class="readingslider2"></div><input type="hidden" id="em2-val2"></div>
+      </div>
+
+       <div class="row no-gutter emrow label">Apathy</div>
+      <div class="row no-gutter">
+        <div class="col-20 "></div>
+        <div class="col-80"><div id="em3-bar2" class="readingslider3"></div> <input type="hidden" id="em3-val2"></div>
+      </div>
+      <p></p>
+      <div class="list-block-label forcewhite">Please rate the emotions</div>
+      <div class="content-block"><a href="#" class="button whitebutton close-popup" id="done2">Done</a></div>
+  </div>
+
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/emoticons.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="slider/nouislider.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+     
+      var slider1 = document.getElementById('em1-bar'),
+      input1 = document.getElementById('em1-val');      
+      noUiSlider.create(slider1, {
+          start: [ 0 ],
+          range: {
+              'min': [   1 ],
+              'max': [ 10 ]
+          }
+      });
+      slider1.noUiSlider.on('update', function( values, handle ) {
+        input1.value = values[handle];
+      });
+
+      var slider2 = document.getElementById('em2-bar'),
+      input2 = document.getElementById('em2-val');      
+      noUiSlider.create(slider2, {
+          start: [ 0 ],
+          range: {
+              'min': [   1 ],
+              'max': [ 10 ]
+          }
+      });
+      slider2.noUiSlider.on('update', function( values, handle ) {
+        input2.value = values[handle];
+      });
+
+
+      var slider3 = document.getElementById('em3-bar'),
+      input3 = document.getElementById('em3-val');      
+      noUiSlider.create(slider3, {
+          start: [ 0 ],
+          range: {
+              'min': [   1 ],
+              'max': [ 10 ]
+          }
+      });
+      slider3.noUiSlider.on('update', function( values, handle ) {
+        input3.value = values[handle];
+      });
+
+
+
+
+      var slider12 = document.getElementById('em1-bar2'),
+      input12 = document.getElementById('em1-val2');      
+      noUiSlider.create(slider12, {
+          start: [ 0 ],
+          range: {
+              'min': [   1 ],
+              'max': [ 10 ]
+          }
+      });
+      slider12.noUiSlider.on('update', function( values, handle ) {
+        input12.value = values[handle];
+      });
+
+      var slider22 = document.getElementById('em2-bar2'),
+      input22 = document.getElementById('em2-val2');      
+      noUiSlider.create(slider22, {
+          start: [ 0 ],
+          range: {
+              'min': [   1 ],
+              'max': [ 10 ]
+          }
+      });
+      slider22.noUiSlider.on('update', function( values, handle ) {
+        input22.value = values[handle];
+      });
+
+
+      var slider32 = document.getElementById('em3-bar2'),
+      input32 = document.getElementById('em3-val2');      
+      noUiSlider.create(slider32, {
+          start: [ 0 ],
+          range: {
+              'min': [   1 ],
+              'max': [ 10 ]
+          }
+      });
+      slider32.noUiSlider.on('update', function( values, handle ) {
+        input32.value = values[handle];
+      });
+
+
+      });
+    </script>
+  </body>
+</html>
